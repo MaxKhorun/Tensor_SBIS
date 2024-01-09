@@ -9,6 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class WebPage(object):
+    '''Методы и основные операции Селениум.ВебДрайвера'''
 
     _web_driver = None
 

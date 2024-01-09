@@ -1,4 +1,3 @@
-from settings_n_data import sbis_URL, tensor_URL
 import uuid
 import logging
 from datetime import datetime
@@ -14,7 +13,7 @@ def set_driver(request):
     # options.add_argument('--headless')
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-gpu")
-    service_set = Service(r"C:\Users\M.Kh\PycharmProjects\chromedriver-win64\chromedriver-win64\chromedriver.exe")
+    service_set = Service(r"path_to\chromedriver.exe")
     w_driver = webdriver.Chrome(service=service_set, options=options)
     w_driver.maximize_window()
 

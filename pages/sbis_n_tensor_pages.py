@@ -5,7 +5,7 @@ from pages.elements import WebElement, ManyWebElements
 
 
 class MainSbisPage(WebPage):
-
+    '''Описание элементов на странице СБИС'''
     def __init__(self, webdriver, url=''):
         
         if not url:
@@ -25,15 +25,16 @@ class MainSbisPage(WebPage):
     # для выбора Камчатки в поп-ап окне
     download_sbis = WebElement(link_text='Скачать СБИС')
     #
-    plugin_sbis = WebElement(link_text='СБИС Плагин')
+    plugin_sbis = WebElement(id='ws-jm379jpy481704827453351')
 
     #
     downl_link = WebElement(xpath='//*[@id="ws-xkfk13wxqwc1704645855413"]/div[1]/div[2]/div[2]/div[1]/a[1]')
-    title = WebElement(class_name='state-1')
+    title = WebElement(tag_name='title')
     tarifi = WebElement(link_text='Тарифы')
 
 
 class MainTensorPage(MainSbisPage):
+    '''Описание элементов на странице Тензор.'''
 
     sila_v_ludyax = WebElement(xpath='//*[@id="container"]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/p[1]')
     # для поиска блока "Сила в людях"

@@ -8,6 +8,7 @@ from selenium.webdriver.common.keys import Keys
 
 
 class WebElement(object):
+    '''опсиание методов, применимых к элементам на странице'''
 
     _locator = ('', '')
     _web_driver = None

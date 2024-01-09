@@ -18,23 +18,19 @@ def test_first_script(web_driver, logger):
         page.about_in_sila.click()
         assert page.get_current_url() == 'https://tensor.ru/about'
     else:
-        logger.warning("Текст в блоке Сила в людях требует внимания")
+        logger.warning("text in Sila s ludyach with a problem", exc_info=True)
         raise AssertionError
 
     page.rabotaem_block.scroll_to_element()
 
-    try:
-        assert page.rabotaem_block.get_text() == 'Работаем'
-    except AssertionError as error:
-        logger.error('Ошибка в тексте блока Работаем или проблема с блоком', exc_info=True)
+    assert page.rabotaem_block.get_text() == 'Работаем', \
+        logger.error('Error or mistake in Rabotaeb block', exc_info=True)
 
     w = list(map(int, page.all_pictures.get_attribute('width')))
     h = list(map(int, page.all_pictures.get_attribute('height')))
 
-    try:
-        assert len(set(w)) == 1 and len(set(h)) == 1
-    except AssertionError as error:
-        logger.error('длина множества с длинами и ширинами картинок больше одного - что-то с размерами', exc_info=True)
+    assert (len(set(w)) == 1 and len(set(h)) == 1), \
+        logger.error('widths and heights are different, SET is more than 1', exc_info=True)
 
 
 def test_second_script(web_driver, logger):
@@ -76,7 +72,7 @@ def test_second_script(web_driver, logger):
         page.screenshot('url_n_title.png')
 
 
-def test_third_script(web_driver):
+def test_third_script(web_driver, logger):
     page = MainTensorPage(web_driver)
 
     pass

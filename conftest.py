@@ -13,7 +13,7 @@ def set_driver(request):
     # options.add_argument('--headless')
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-gpu")
-    service_set = Service(r"path_to\chromedriver.exe")
+    service_set = Service(r"C:\SF\GITHUB\chromedriver-win64\chromedriver-win64\chromedriver.exe")
     w_driver = webdriver.Chrome(service=service_set, options=options)
     w_driver.maximize_window()
 
